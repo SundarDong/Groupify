@@ -36,8 +36,8 @@ class _AuthenticationUIState extends State<AuthenticationUI> {
                   FadeInAnimation(
                     delay: 1,
                     child: Container(
-                      height: 70,
-                      width: 70,
+                      height: 60,
+                      width: 60,
                       decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
