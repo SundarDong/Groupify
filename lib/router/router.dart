@@ -1,6 +1,7 @@
 class AppRouter {
   String name;
   String path;
+
   AppRouter({
     required this.name,
     required this.path,
@@ -19,4 +20,5 @@ class Routers {
       AppRouter(name: "/otpverification", path: "/otpverification");
   static AppRouter passwordchanges =
       AppRouter(name: "/passwordchanges", path: "/passwordchanges");
+      
 }
