@@ -20,5 +20,7 @@ class Routers {
       AppRouter(name: "/otpverification", path: "/otpverification");
   static AppRouter passwordchanges =
       AppRouter(name: "/passwordchanges", path: "/passwordchanges");
+      // Add the onboarding screen route here
+  static AppRouter onboardingScreen = AppRouter(name: "/onboarding", path: "/onboarding");
       
 }
