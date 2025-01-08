@@ -71,14 +71,14 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
         });
       },
       style: ButtonStyle(
-          side: const MaterialStatePropertyAll(BorderSide(color: Colors.grey)),
-          shape: MaterialStatePropertyAll(
+          side: const WidgetStatePropertyAll(BorderSide(color: Colors.grey)),
+          shape: WidgetStatePropertyAll(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
-          fixedSize: const MaterialStatePropertyAll(Size.fromWidth(370)),
-          padding: const MaterialStatePropertyAll(
+          fixedSize: const WidgetStatePropertyAll(Size.fromWidth(370)),
+          padding: const WidgetStatePropertyAll(
             EdgeInsets.symmetric(vertical: 20),
           ),
-          backgroundColor: MaterialStatePropertyAll(widget.color)),
+          backgroundColor: WidgetStatePropertyAll(widget.color)),
       child: loading
           ? const CupertinoActivityIndicator()
           : FittedBox(
