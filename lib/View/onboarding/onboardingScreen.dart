@@ -1,5 +1,5 @@
-import 'package:authentication_ui/Model/onboarding_contents.dart';
 import 'package:authentication_ui/View/onboarding/size_config.dart';
+import 'package:authentication_ui/model/onboarding_contents.dart';
 import 'package:authentication_ui/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
