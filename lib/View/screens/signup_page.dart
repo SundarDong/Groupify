@@ -1,6 +1,6 @@
 import 'package:authentication_ui/common/common.dart';
 import 'package:authentication_ui/router/router.dart';
-import 'package:authentication_ui/screens/fade_animationtest.dart';
+import 'package:authentication_ui/View/screens/fade_animationtest.dart';
 import 'package:authentication_ui/widgets/custom_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

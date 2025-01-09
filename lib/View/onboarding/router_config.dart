@@ -1,4 +1,4 @@
-import 'package:authentication_ui/onboarding/onboardingScreen.dart';
+import 'package:authentication_ui/View/onboarding/onboardingScreen.dart';
 import 'package:go_router/go_router.dart';
 // Correct import path
 

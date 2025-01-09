@@ -1,19 +1,20 @@
 import 'package:authentication_ui/common/common.dart';
 import 'package:authentication_ui/router/router.dart';
-import 'package:authentication_ui/screens/fade_animationtest.dart';
+import 'package:authentication_ui/View/screens/fade_animationtest.dart';
 import 'package:authentication_ui/widgets/custom_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
-class NewPasswordPage extends StatefulWidget {
-  const NewPasswordPage({super.key});
+class ForgetPasswordPage extends StatefulWidget {
+  const ForgetPasswordPage({super.key});
 
   @override
-  State<NewPasswordPage> createState() => _NewPasswordPageState();
+  State<ForgetPasswordPage> createState() => _ForgetPasswordPageState();
 }
 
-class _NewPasswordPageState extends State<NewPasswordPage> {
+class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,14 +44,14 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
                     FadeInAnimation(
                       delay: 1.3,
                       child: Text(
-                        "Create new password",
+                        "Forgot Password?",
                         style: Common().titelTheme,
                       ),
                     ),
                     FadeInAnimation(
                       delay: 1.6,
                       child: Text(
-                        "Your new password must be unique from those previously used.",
+                        "Don't worry! It occurs. Please enter the email address linked with your account.",
                         style: Common().mediumThemeblack,
                       ),
                     )
@@ -65,17 +66,7 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
                       FadeInAnimation(
                         delay: 1.9,
                         child: const CustomTextFormField(
-                          hinttext: 'New password',
-                          obsecuretext: false,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      FadeInAnimation(
-                        delay: 2.1,
-                        child: const CustomTextFormField(
-                          hinttext: 'Confirm password',
+                          hinttext: 'Enter your email',
                           obsecuretext: false,
                         ),
                       ),
@@ -83,12 +74,12 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
                         height: 30,
                       ),
                       FadeInAnimation(
-                        delay: 2.4,
+                        delay: 2.1,
                         child: CustomElevatedButton(
-                          message: "Reset Password ",
+                          message: "Send Code ",
                           function: () {
                             GoRouter.of(context)
-                                .pushNamed(Routers.passwordchanges.name);
+                                .pushNamed(Routers.otpverification.name);
                           },
                           color: Colors.black,
                         ),
@@ -99,7 +90,7 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
               ),
               Spacer(),
               FadeInAnimation(
-                delay: 2.5,
+                delay: 2.4,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 50),
                   child: Row(

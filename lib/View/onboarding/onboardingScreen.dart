@@ -1,9 +1,8 @@
-import 'package:authentication_ui/model/onboarding_contents.dart';
-import 'package:authentication_ui/onboarding/size_config.dart';
+import 'package:authentication_ui/Model/onboarding_contents.dart';
+import 'package:authentication_ui/View/onboarding/size_config.dart';
 import 'package:authentication_ui/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -22,10 +21,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   int _currentPage = 0;
+
+  /*Use the color #F2F8FC as the primary background color*/
   List colors = const [
-    Color(0xffDAD3C8),
-    Color(0xffFFE5DE),
-    Color(0xffDCF6E6),
+    Color(0xFFF2F8FC),
+    Color(0xFFF2F8FC),
+    Color(0xFFF2F8FC),
   ];
 
   AnimatedContainer _buildDots({
@@ -53,7 +54,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     double height = SizeConfig.screenH!;
 
     return Scaffold(
-      backgroundColor: colors[_currentPage],
+      backgroundColor: colors[_currentPage], // Apply #F2F8FC here
       body: SafeArea(
         child: Column(
           children: [
@@ -72,7 +73,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         Expanded( // Wrap the Image.asset with Expanded
                           child: Image.asset(
                             contents[i].image,
-                            // Remove fixed height here, let it be flexible
                           ),
                         ),
                         SizedBox(
@@ -125,7 +125,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               // Navigate to the Authentication UI screen when pressed
                               context.go(Routers.authenticationpage.path);
                             },
-                            child: const Text("START"),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.black,
                               shape: RoundedRectangleBorder(
@@ -138,6 +137,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                       horizontal: width * 0.2, vertical: 25),
                               textStyle:
                                   TextStyle(fontSize: (width <= 550) ? 13 : 17),
+                            ),
+                            child: const Text("START",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                             ),
                           ),
                         )
@@ -169,7 +174,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                     curve: Curves.easeIn,
                                   );
                                 },
-                                child: const Text("NEXT"),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.black,
                                   shape: RoundedRectangleBorder(
@@ -183,6 +187,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                           horizontal: 30, vertical: 25),
                                   textStyle: TextStyle(
                                       fontSize: (width <= 550) ? 13 : 17),
+                                ),
+                                child: const Text("NEXT",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold
+                                ),
                                 ),
                               ),
                             ],
