@@ -1,22 +1,46 @@
+// ignore_for_file: avoid_print
+
 import 'package:authentication_ui/common/common.dart';
 import 'package:authentication_ui/router/router.dart';
-import 'package:authentication_ui/screens/fade_animationtest.dart';
+import 'package:authentication_ui/View/screens/fade_animationtest.dart';
 import 'package:authentication_ui/widgets/custom_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pinput/pinput.dart';
 
-class ForgetPasswordPage extends StatefulWidget {
-  const ForgetPasswordPage({super.key});
+class OtpVerificationPage extends StatefulWidget {
+  const OtpVerificationPage({super.key});
 
   @override
-  State<ForgetPasswordPage> createState() => _ForgetPasswordPageState();
+  State<OtpVerificationPage> createState() => _OtpVerificationPageState();
 }
 
-class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
+class _OtpVerificationPageState extends State<OtpVerificationPage> {
   @override
   Widget build(BuildContext context) {
+    final defaultPinTheme = PinTheme(
+      width: 56,
+      height: 56,
+      textStyle: const TextStyle(
+          fontSize: 20, color: Colors.grey, fontWeight: FontWeight.w600),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey.shade800),
+        borderRadius: BorderRadius.circular(20),
+      ),
+    );
+
+    final focusedPinTheme = defaultPinTheme.copyDecorationWith(
+      border: Border.all(color: Colors.grey),
+      borderRadius: BorderRadius.circular(8),
+    );
+
+    final submittedPinTheme = defaultPinTheme.copyWith(
+      decoration: defaultPinTheme.decoration?.copyWith(
+        color: const Color.fromRGBO(234, 239, 243, 1),
+      ),
+    );
+
     return Scaffold(
       // backgroundColor: const Color(0xFFE8ECF4),
       body: SafeArea(
@@ -44,14 +68,14 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                     FadeInAnimation(
                       delay: 1.3,
                       child: Text(
-                        "Forgot Password?",
+                        "OTP Verification",
                         style: Common().titelTheme,
                       ),
                     ),
                     FadeInAnimation(
                       delay: 1.6,
                       child: Text(
-                        "Don't worry! It occurs. Please enter the email address linked with your account.",
+                        "Enter the verification code we just sent on your email address.",
                         style: Common().mediumThemeblack,
                       ),
                     )
@@ -65,21 +89,31 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                     children: [
                       FadeInAnimation(
                         delay: 1.9,
-                        child: const CustomTextFormField(
-                          hinttext: 'Enter your email',
-                          obsecuretext: false,
+                        child: Pinput(
+                          defaultPinTheme: defaultPinTheme,
+                          focusedPinTheme: focusedPinTheme,
+                          submittedPinTheme: submittedPinTheme,
+                          validator: (s) {
+                            return s == '2222' ? null : 'Pin is incorrect';
+                          },
+                          pinputAutovalidateMode:
+                              PinputAutovalidateMode.onSubmit,
+                          showCursor: true,
+                          onCompleted: (pin) {
+                            print(pin);
+                          },
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       FadeInAnimation(
                         delay: 2.1,
                         child: CustomElevatedButton(
-                          message: "Send Code ",
+                          message: "Verify",
                           function: () {
                             GoRouter.of(context)
-                                .pushNamed(Routers.otpverification.name);
+                                .pushNamed(Routers.newpassword.name);
                           },
                           color: Colors.black,
                         ),
@@ -88,7 +122,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                   ),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               FadeInAnimation(
                 delay: 2.4,
                 child: Padding(
