@@ -1,3 +1,4 @@
+import 'package:authentication_ui/View/screens/Homepage.dart';
 import 'package:authentication_ui/common/common.dart';
 import 'package:authentication_ui/router/router.dart';
 import 'package:authentication_ui/View/screens/fade_animationtest.dart';
@@ -124,11 +125,12 @@ class _LoginPageState extends State<LoginPage> {
                   FadeInAnimation(
                     delay: 2.8,
                     child: CustomElevatedButton(
-                      message: "Login",
+                     message: "Login",
                       function: () {
-                        setState(() {
-                          flag = !flag;
-                        });
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Homepage()),
+                        );
                       },
                       color: Colors.black,
                     ),
