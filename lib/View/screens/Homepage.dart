@@ -1,37 +1,35 @@
 import 'package:flutter/material.dart';
 
-class Homepage extends StatefulWidget {
-  const Homepage({super.key});
+void main() => runApp(const MyApp());
 
-  @override
-  State<Homepage> createState() => _HomepageState();
-}
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Main Page"),
-        backgroundColor: Colors.teal,
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            // Navigate to the secondary page
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SecondaryHomePage()),
-            );
-          },
-          child: const Text("Go to Secondary Page"),
-        ),
-      ),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home:  Homepage(), // Directly show the SecondaryHomePage
     );
   }
 }
 
-class SecondaryHomePage extends StatelessWidget {
+class Homepage extends StatefulWidget {
+  const Homepage({super.key});
+
+  @override
+  State<Homepage> createState() => _SecondaryHomePageState();
+}
+
+class _SecondaryHomePageState extends State<Homepage> {
+  int _currentIndex = 0; // For bottom navigation bar
+
+  void _onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -142,10 +140,8 @@ class SecondaryHomePage extends StatelessWidget {
 
       // Bottom Navigation Bar
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        onTap: (index) {
-          // Handle navigation between tabs
-        },
+        currentIndex: _currentIndex,
+        onTap: _onTabTapped,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
