@@ -155,7 +155,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 onPressed: () {
                                   _controller.jumpToPage(2);
                                 },
-                                child: const Text(
+                                child: Text(
                                   "SKIP",
                                   style: TextStyle(color: Colors.black),
                                 ),
