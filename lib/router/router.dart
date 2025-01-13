@@ -21,6 +21,5 @@ class Routers {
   static AppRouter passwordchanges =
       AppRouter(name: "/passwordchanges", path: "/passwordchanges");
       // Add the onboarding screen route here
-  static AppRouter onboardingScreen = AppRouter(name: "/onboarding", path: "/onboarding");
-      
+  static AppRouter onboardingScreen = AppRouter(name: "/onboarding", path: "/onboarding");      
 }

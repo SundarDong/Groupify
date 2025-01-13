@@ -22,20 +22,14 @@ class Homepage extends StatefulWidget {
 }
 
 class _SecondaryHomePageState extends State<Homepage> {
-  int _currentIndex = 0; // For bottom navigation bar
-
-  void _onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
+// For bottom navigation bar
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.teal,
-        title: const Text("RUN APP", style: TextStyle(fontWeight: FontWeight.bold)),
+        backgroundColor: Colors.black,
+        title: const Text("Homepage", style: TextStyle(fontWeight: FontWeight.bold)),
         actions: [
           IconButton(
             onPressed: () {},
@@ -46,18 +40,6 @@ class _SecondaryHomePageState extends State<Homepage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Greeting Section
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: const Text(
-                  "Good Afternoon, Jhonne!",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-
             // Icon Grid Section
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -96,66 +78,10 @@ class _SecondaryHomePageState extends State<Homepage> {
                     ),
                   ],
                 ),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      'assets/images/car_ad.png', // Replace with your car image asset
-                      height: 120,
-                      fit: BoxFit.cover,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          const Text(
-                            "TOYOTA YARIS",
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          const Text(
-                            "Starting from €14990",
-                            style: TextStyle(fontSize: 16, color: Colors.green),
-                          ),
-                          const Text(
-                            "+ 5 Year Free Extras + Low Costs",
-                            style: TextStyle(fontSize: 14, color: Colors.grey),
-                          ),
-                          ElevatedButton(
-                            onPressed: () {},
-                            child: const Text("FIND OUT MORE"),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red,
-                              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
               ),
             ),
           ],
         ),
-      ),
-
-      // Bottom Navigation Bar
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: _onTabTapped,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_add),
-            label: "Invite",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          ),
-        ],
       ),
     );
   }
